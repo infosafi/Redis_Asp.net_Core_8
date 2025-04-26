@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Redis_Asp.net_Core_8.props" />
+</Project>
