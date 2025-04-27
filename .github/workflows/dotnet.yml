@@ -1,0 +1,44 @@
+name: Build and Deploy FortPolio App
+
+on:
+  push:
+    branches:
+      - master  # or whatever branch you deploy from
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted  # <--- very important!
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'  # ASP.NET Core 8.0
+    - name: Extract Zip and Clean Up
+      run: |
+        $zipPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\2a3edac0-75bf-4a0b-aa2e-d86d5f7de115.zip'
+        $extractPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\2a3edac0-75bf-4a0b-aa2e-d86d5f7de115'
+        
+        # Extract the ZIP file
+        if (Test-Path $zipPath) {
+            Expand-Archive -LiteralPath $zipPath -DestinationPath $extractPath -Force
+        }
+
+        # Clean up unwanted files (only if they exist)
+        $folderToRemove = "$extractPath\infosafi-Redis_Asp.net_Core_8-90000ab\.github"
+        if (Test-Path $folderToRemove) {
+            Remove-Item -Path $folderToRemove -Force -Recurse
+        } else {
+            Write-Host "No .github folder found to remove"
+        }
+
+    - name: Publish the app
+      run: |
+        dotnet publish FortPolioApp.sln -c Release -o C:\Deploy\FortPolioApp
+
+    - name: Restart IIS
+      run: |
+        Restart-Service W3SVC
