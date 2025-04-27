@@ -16,18 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'  # ASP.NET Core 8.0
-    - name: Extract Zip and Clean Up
-      run: |
-        $zipPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\05ee602b-eb8a-48aa-a778-90c5032d4f4e.zip'
-        $extractPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\05ee602b-eb8a-48aa-a778-90c5032d4f4e'
-        
-        # Extract the ZIP file
-        if (Test-Path $zipPath) {
-            Expand-Archive -LiteralPath $zipPath -DestinationPath $extractPath -Force
-        }
-
-      
+        dotnet-version: '8.0.x'  # ASP.NET Core 8.0      
 
     - name: Publish the app
       run: |
