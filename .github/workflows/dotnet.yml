@@ -1,13 +1,13 @@
-name: Deploy to Windows Server
+name: Deploy FortPolio App
 
 on:
   push:
     branches:
-      - master  # or your deployment branch
+      - main
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout code
@@ -16,26 +16,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'  # for ASP.NET Core 8.0
+        dotnet-version: '8.0.x'
 
-    - name: Build the project
-      run: dotnet publish -c Release -o publish_output
+    - name: Build and Publish
+      run: dotnet publish -c Release -o C:\Deploy\redisbysafi
 
-    - name: Deploy to Windows Server via WinRM
-      uses: mmajcica/action-powershell-remoting@v2
-      with:
-        host: ${{ secrets.WINRM_HOST }}
-        username: ${{ secrets.WINRM_USER }}
-        password: ${{ secrets.WINRM_PASSWORD }}
-        insecure: true  # set to false if you have proper SSL
-        script: |
-          # Create directory if doesn't exist
-          if (!(Test-Path -Path "C:\Deploy\redisbysafi")) {
-            New-Item -ItemType Directory -Path "C:\Deploy\redisbysafi"
-          }
-          # Copy files (you can use SMB, robocopy, or git pull inside server)
-          # Here we'll assume simple git pull/update OR remote file copy setup
-          
-          # Example to restart IIS if needed
-          Restart-Service -Name 'W3SVC'
-
+    - name: Restart IIS
+      run: |
+        Restart-Service W3SVC
