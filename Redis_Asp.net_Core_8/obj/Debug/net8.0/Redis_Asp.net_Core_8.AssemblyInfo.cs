@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Redis_Asp.net_Core_8")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64701836f74339dc82eaea2255e50971d68f194e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+885222da1d67da462b4b5f2ba70fc1a2bec287fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Redis_Asp.net_Core_8")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Redis_Asp.net_Core_8")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

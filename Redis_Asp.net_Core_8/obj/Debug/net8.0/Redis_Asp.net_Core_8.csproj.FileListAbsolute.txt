@@ -169,3 +169,4 @@ E:\Safi-Backup\ASP.Net Core\Redis\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\bin\
 E:\Safi-Backup\ASP.Net Core\Redis\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
 E:\Safi-Backup\ASP.Net Core\Redis\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 E:\Safi-Backup\ASP.Net Core\Redis\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\bin\Debug\net8.0\StackExchange.Redis.dll
+E:\Safi-Backup\ASP.Net Core\Redis\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\obj\Debug\net8.0\Redis_Asp.net_Core_8.sourcelink.json
