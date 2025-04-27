@@ -27,13 +27,7 @@ jobs:
             Expand-Archive -LiteralPath $zipPath -DestinationPath $extractPath -Force
         }
 
-        # Clean up unwanted files (only if they exist)
-        $folderToRemove = "$extractPath\infosafi-Redis_Asp.net_Core_8-90000ab\.github"
-        if (Test-Path $folderToRemove) {
-            Remove-Item -Path $folderToRemove -Force -Recurse
-        } else {
-            Write-Host "No .github folder found to remove"
-        }
+      
 
     - name: Publish the app
       run: |
