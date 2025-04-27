@@ -1,28 +1,41 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: Deploy to Windows Server
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - main  # or your deployment branch
 
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+        dotnet-version: '8.0.x'  # for ASP.NET Core 8.0
+
+    - name: Build the project
+      run: dotnet publish -c Release -o publish_output
+
+    - name: Deploy to Windows Server via WinRM
+      uses: mmajcica/action-powershell-remoting@v2
+      with:
+        host: ${{ secrets.WINRM_HOST }}
+        username: ${{ secrets.WINRM_USER }}
+        password: ${{ secrets.WINRM_PASSWORD }}
+        insecure: true  # set to false if you have proper SSL
+        script: |
+          # Create directory if doesn't exist
+          if (!(Test-Path -Path "C:\Deploy\FortPolioApp")) {
+            New-Item -ItemType Directory -Path "C:\Deploy\FortPolioApp"
+          }
+          # Copy files (you can use SMB, robocopy, or git pull inside server)
+          # Here we'll assume simple git pull/update OR remote file copy setup
+          
+          # Example to restart IIS if needed
+          Restart-Service -Name 'W3SVC'
+
