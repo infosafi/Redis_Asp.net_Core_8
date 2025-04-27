@@ -19,8 +19,8 @@ jobs:
         dotnet-version: '8.0.x'  # ASP.NET Core 8.0
     - name: Extract Zip and Clean Up
       run: |
-        $zipPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\2a3edac0-75bf-4a0b-aa2e-d86d5f7de115.zip'
-        $extractPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\2a3edac0-75bf-4a0b-aa2e-d86d5f7de115'
+        $zipPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\05ee602b-eb8a-48aa-a778-90c5032d4f4e.zip'
+        $extractPath = 'C:\Users\Administrator\actions-runner\redisbysafi\Redis_Asp.net_Core_8\Redis_Asp.net_Core_8\05ee602b-eb8a-48aa-a778-90c5032d4f4e'
         
         # Extract the ZIP file
         if (Test-Path $zipPath) {
