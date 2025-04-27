@@ -1,13 +1,13 @@
-name: Deploy FortPolio App
+name: Build and Deploy FortPolio App
 
 on:
   push:
     branches:
-      - main
+      - master  # or whatever branch you deploy from
 
 jobs:
   build-and-deploy:
-    runs-on: self-hosted
+    runs-on: self-hosted  # <--- very important!
 
     steps:
     - name: Checkout code
@@ -16,10 +16,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '8.0.x'  # ASP.NET Core 8.0
 
-    - name: Build and Publish
-      run: dotnet publish -c Release -o C:\Deploy\redisbysafi
+    - name: Publish the app
+      run: |
+        dotnet publish FortPolioApp.sln -c Release -o C:\Deploy\FortPolioApp
 
     - name: Restart IIS
       run: |
