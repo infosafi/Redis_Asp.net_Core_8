@@ -3,7 +3,7 @@ name: Deploy to Windows Server
 on:
   push:
     branches:
-      - main  # or your deployment branch
+      - master  # or your deployment branch
 
 jobs:
   build-and-deploy:
@@ -30,8 +30,8 @@ jobs:
         insecure: true  # set to false if you have proper SSL
         script: |
           # Create directory if doesn't exist
-          if (!(Test-Path -Path "C:\Deploy\FortPolioApp")) {
-            New-Item -ItemType Directory -Path "C:\Deploy\FortPolioApp"
+          if (!(Test-Path -Path "C:\Deploy\redisbysafi")) {
+            New-Item -ItemType Directory -Path "C:\Deploy\redisbysafi"
           }
           # Copy files (you can use SMB, robocopy, or git pull inside server)
           # Here we'll assume simple git pull/update OR remote file copy setup
