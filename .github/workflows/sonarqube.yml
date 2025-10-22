@@ -26,21 +26,21 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Run tests with coverage
-        run: dotnet test --no-build --collect:"XPlat Code Coverage"
+        run: dotnet test --no-build --collect:"XPlat Code Coverage" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/coverage.cobertura.xml
 
       - name: Install reportgenerator
         run: dotnet tool install -g dotnet-reportgenerator-globaltool
 
       - name: Generate coverage report
         run: |
-          reportgenerator -reports:"**/TestResults/**/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:"HtmlInline_AzurePipelines,Cobertura"
+          reportgenerator -reports:"TestResults/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:"HtmlInline_AzurePipelines,Cobertura"
 
       - name: Install SonarScanner
         run: dotnet tool install --global dotnet-sonarscanner
 
       - name: Begin SonarQube analysis
         run: |
-          dotnet-sonarscanner begin /k:"Redis_Asp.net_Core_8" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="**/coverage.cobertura.xml"
+          dotnet-sonarscanner begin /k:"Redis_Asp.net_Core_8" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="TestResults/coverage.cobertura.xml"
 
       - name: Rebuild solution
         run: dotnet build
