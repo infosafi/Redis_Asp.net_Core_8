@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Safi-Backup\\ASP.Net Core\\Redis\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj": {}
+    "D:\\Learning\\Asp.net Core\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj": {}
   },
   "projects": {
-    "E:\\Safi-Backup\\ASP.Net Core\\Redis\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj": {
+    "D:\\Learning\\Asp.net Core\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Safi-Backup\\ASP.Net Core\\Redis\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj",
+        "projectUniqueName": "D:\\Learning\\Asp.net Core\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj",
         "projectName": "Redis_Asp.net_Core_8",
-        "projectPath": "E:\\Safi-Backup\\ASP.Net Core\\Redis\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "E:\\Safi-Backup\\ASP.Net Core\\Redis\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\obj\\",
+        "projectPath": "D:\\Learning\\Asp.net Core\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8.csproj",
+        "packagesPath": "C:\\Users\\Md. Safiul Alam\\.nuget\\packages\\",
+        "outputPath": "D:\\Learning\\Asp.net Core\\Redis_Asp.net_Core_8\\Redis_Asp.net_Core_8\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Md. Safiul Alam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -41,7 +39,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -68,6 +72,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.4, )"
             }
           },
           "imports": [
@@ -89,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
