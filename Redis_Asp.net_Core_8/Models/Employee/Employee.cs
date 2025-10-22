@@ -9,7 +9,7 @@ namespace Redis_Asp.net_Core_8.Models.Employee
         public int EmployeeId { get; set;}
         public string Name { get; set; }            
         public string Email { get; set; }
-        public string Address { get; set; }
+        public string Address { get; set; }=String.empty;
         public string Phone { get; set; }
     }
 }
